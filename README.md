@@ -1,4 +1,4 @@
-# LLM-Augmented XAI with Mutual Feature Interactions: The QoT Estimation Use Case
+# LLM-Augmented Explainable AI with Mutual Feature Interactions: a Quality-of-Transmission Estimation Use Case
 
 This repository contains the implementation and evaluation of the proposed LLM-Augmented XAI framework that combines Large Language Models (LLMs) with Explainable AI (XAI) techniques, specifically focusing on mutual feature interactions for Quality of Transmission (QoT) estimation use case in optical networks. This work is part of our paper submitted to the European Conference on Optical Communication (ECOC) 2025.
 
