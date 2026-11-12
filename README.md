@@ -22,7 +22,23 @@ Values are the averages reported in Table I. Scope and usefulness were scored fo
 
 ## Experiment materials
 
-This repository currently contains only this README. Table A-I in the paper describes the proposed prompt structure, and Table A-II gives examples of both prompts and their outputs. The source lightpath dataset is available from the [QoT Dataset Collection](https://www.hhi.fraunhofer.de/en/pn-software/qot-dataset-collection.html).
+[The experiment runner](run_genxnet.py) trains the XGBoost BER regressor, computes local SHAP contributions and interactions, and generates paired baseline and proposed explanations. Table A-I in the paper describes the proposed prompt structure, and Table A-II gives examples of both prompts and their outputs.
+
+Download the lightpath NetCDF file for Dataset 03 (TSNN, 1,321,452 samples) from the [Fraunhofer HHI QoT Dataset Collection](https://www.hhi.fraunhofer.de/en/pn-software/qot-dataset-collection.html). The experiment notebook used `lightpath_dataset_1.nc` as its local filename. Use Python 3.11 or 3.12 and install the dependencies in a virtual environment.
+
+```bash
+python -m pip install -r requirements.txt
+python run_genxnet.py /path/to/lightpath_dataset_1.nc --prompts-only --samples 2 --output prompts.csv
+```
+
+To generate the 40 paired explanations, start [Ollama](https://ollama.com/) and make a 4-bit DeepSeek-R1 32B model available.
+
+```bash
+ollama pull deepseek-r1:32b
+python run_genxnet.py /path/to/lightpath_dataset_1.nc --output explanations.csv
+```
+
+Each output row includes the source row ID, predicted BER, and both prompts. A full run also includes both generated explanations. The runner computes each BER prediction on the same sampled lightpath used for its SHAP values. This fixes a row alignment issue in the research notebook. The table above reports the published human evaluation of the original outputs.
 
 ## Citation
 
