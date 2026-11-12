@@ -10,6 +10,8 @@ Companion repository for the paper presented at the 1st IEEE International Works
 
 The framework uses a large language model to turn SHAP explanations of optical lightpath quality-of-transmission (QoT) predictions into natural-language explanations. The baseline prompt uses individual SHAP feature contributions. The proposed prompt adds pairwise SHAP interaction values to help explain how features jointly affect a prediction.
 
+![Example dashboard showing an LLM-generated explanation, estimated bit error rate, lightpath features, a SHAP influence plot, and a SHAP interaction matrix](figures/dashboard.png)
+
 The paper evaluates both prompts using a 4-bit quantized DeepSeek-R1 model on 40 local SHAP explanations from an XGBoost regressor. Two domain experts independently rated the generated explanations.
 
 | Metric | Baseline prompt | Proposed prompt |
